@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Member {
 
-	private Long id;
+	private Long id;//깃허브 커밋 변경사항 연습
 	private String email;
 	private String password;
 	private String name;
