@@ -14,7 +14,7 @@ public class Member {
 			String name, LocalDateTime regDateTime) {
 		this.email = email;
 		this.password = password;
-		this.name = name;
+		this.name = "hi";
 		this.registerDateTime = regDateTime;
 	}
 
