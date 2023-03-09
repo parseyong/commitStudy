@@ -11,11 +11,12 @@ public class Member {
 	private LocalDateTime registerDateTime;
 
 	public Member(String email, String password, 
-			String name, LocalDateTime regDateTime) {
+			String name, LocalDateTime regDateTime,long id) {
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.registerDateTime = regDateTime;
+		this.id=id;
 	}
 
 	void setId(Long id) {

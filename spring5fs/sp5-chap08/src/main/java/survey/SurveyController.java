@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/survey")
 public class SurveyController {
-
+//https://hongku.tistory.com/116
 	@GetMapping
 	public String form(Model model) {
 		List<Question> questions = createQuestions();

@@ -1,11 +1,13 @@
 package spring;
 
 public class RegisterRequest {
-
+	private long id;
 	private String email;
 	private String password;
 	private String confirmPassword;
 	private String name;
+
+	
 
 	public String getEmail() {
 		return email;
@@ -41,5 +43,13 @@ public class RegisterRequest {
 
 	public boolean isPasswordEqualToConfirmPassword() {
 		return password.equals(confirmPassword);
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

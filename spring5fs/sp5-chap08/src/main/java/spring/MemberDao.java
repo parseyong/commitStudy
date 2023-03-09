@@ -33,8 +33,10 @@ public class MemberDao {
 								rs.getString("EMAIL"),
 								rs.getString("PASSWORD"),
 								rs.getString("NAME"),
-								rs.getTimestamp("REGDATE").toLocalDateTime());
-						member.setId(rs.getLong("ID"));
+								rs.getTimestamp("REGDATE").toLocalDateTime(),
+								rs.getLong("ID"));
+						
+						
 						return member;
 					}
 				}, email);
@@ -43,28 +45,30 @@ public class MemberDao {
 	}
 
 	public void insert(Member member) {
-		KeyHolder keyHolder = new GeneratedKeyHolder();
+		//KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con)
 					throws SQLException {
 				// 파라미터로 전달받은 Connection을 이용해서 PreparedStatement 생성
 				PreparedStatement pstmt = con.prepareStatement(
-						"insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE) " +
-						"values (?, ?, ?, ?)",
-						new String[] { "ID" });
+						"insert into MEMBER (EMAIL, PASSWORD, NAME, REGDATE,id) " +
+						"values (?, ?, ?, ?,?)");
 				// 인덱스 파라미터 값 설정
 				pstmt.setString(1, member.getEmail());
 				pstmt.setString(2, member.getPassword());
 				pstmt.setString(3, member.getName());
+				pstmt.setLong(5, member.getId());
+				member.setId(member.getId());
 				pstmt.setTimestamp(4,
 						Timestamp.valueOf(member.getRegisterDateTime()));
 				// 생성한 PreparedStatement 객체 리턴
 				return pstmt;
 			}
-		}, keyHolder);
-		Number keyValue = keyHolder.getKey();
-		member.setId(keyValue.longValue());
+		});
+		//Number keyValue = keyHolder.getKey();
+		//member.setId(keyValue.longValue());
+		
 	}
 
 	public void update(Member member) {
@@ -80,8 +84,9 @@ public class MemberDao {
 							rs.getString("EMAIL"),
 							rs.getString("PASSWORD"),
 							rs.getString("NAME"),
-							rs.getTimestamp("REGDATE").toLocalDateTime());
-					member.setId(rs.getLong("ID"));
+							rs.getTimestamp("REGDATE").toLocalDateTime(),
+							rs.getLong("ID"));
+					
 					return member;
 				});
 		return results;
