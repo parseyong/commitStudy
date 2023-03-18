@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import average.AvgController;
 import controller.RegisterController;
 import spring.MemberRegisterService;
-import survey.SurveyController;
 
 @Configuration
 public class ControllerConfig {
@@ -22,7 +22,7 @@ public class ControllerConfig {
 	}
 	
 	@Bean
-	public SurveyController surveyController() {
-		return new SurveyController();
+	public AvgController avgController() {
+		return new AvgController();
 	}
 }
