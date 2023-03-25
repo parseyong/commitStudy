@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>회원 정보 입력</h2>
-    <form:form action="step3" modelAttribute="requestAttribute">
+    <form:form action="step3" modelAttribute="registerRequest">
     <p>
         <label>이메일:<br>
         <form:input path="email" />
