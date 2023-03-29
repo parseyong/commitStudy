@@ -13,6 +13,7 @@
 		<p>
 			<label>국어 성적: <br>
 			<form:input path="korean" />
+			<form:errors path="korean" />
 			</label>
 			
 		</p>
@@ -20,18 +21,21 @@
 		<p>
 			<label>영어 성적: <br>
 				<form:input path="english" />
+				<form:errors path="english" />
 			</label>
 			
 		</p>
 		<p>
 			<label>수학 성적: <br>
 				<form:input path="math" />
+				<form:errors path="math" />
 			</label>
 			
 		</p>
 		<p>
 			<label>과학 성적: <br>
 				<form:input path="science" />
+				<form:errors path="science" />
 			</label>
 			
 		</p>

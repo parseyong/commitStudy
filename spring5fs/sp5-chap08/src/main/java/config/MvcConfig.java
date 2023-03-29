@@ -1,5 +1,6 @@
 package config;
 
+import org.apache.tomcat.jdbc.pool.Validator;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,10 +11,17 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import controller.RegisterRequestValidator;
+
 @Configuration
 @EnableWebMvc
 public class MvcConfig implements WebMvcConfigurer {
-
+	
+//	@Override
+//	public RegisterRequestValidator getValidator() {
+//		return new RegisterRequestValidator();
+//	}  글로벌한 validator 사용하기위한 설정, bean validation을 사용하려면 해당 설정을 지워야함
+	
 	@Override // 핸들러 매핑을 하기위한 설정 
 	public void configureDefaultServletHandling(
 			DefaultServletHandlerConfigurer configurer) {

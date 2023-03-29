@@ -1,6 +1,11 @@
 package average;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class TestScore {
+	
 	private double math;
 	private double english;
 	private double korean;

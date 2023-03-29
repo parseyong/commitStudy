@@ -1,14 +1,17 @@
 package spring;
 
+import javax.validation.constraints.NotBlank;
+
 public class RegisterRequest {
-	private long id;
+	
+	private String id;
 	private String email;
 	private String password;
+	@NotBlank
 	private String confirmPassword;
 	private String name;
 
 	
-
 	public String getEmail() {
 		return email;
 	}
@@ -45,11 +48,12 @@ public class RegisterRequest {
 		return password.equals(confirmPassword);
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
-
-	public void setId(long id) {
+	
+	public void setId(String id) {
 		this.id = id;
+		
 	}
 }
