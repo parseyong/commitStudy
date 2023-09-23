@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AvgController {
-	// 이슈 테스트3
+	// 이슈 테스트4
 	@RequestMapping("/average/takingInput")
 	public String handleAvg1(Model model) {
 		model.addAttribute("testScore",new TestScore());
